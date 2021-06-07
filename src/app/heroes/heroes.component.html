@@ -20,12 +20,5 @@ Substituído pelos detalhes conforme clique -->
     <input id="name" [(ngModel)]="hero.name" placeholder="name">
 </div> -->
 
-<!--Onde serão exbidos os dados do herói selecionado-->
-<div *ngIf="selectedHero">
-    <h2>{{selectedHero.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{selectedHero.id}}</div>
-    <div>
-        <label for="hero-name">Hero name: </label>
-        <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
-    </div>
-</div>
+<!--Item que especifica o herói selecionado para apresentar os detalhes (hero-detail.component)-->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
