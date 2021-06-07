@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 // Importando a interface hero
 import { Hero } from '../hero';
+// Importando dados fictícios
+import { HEROES } from '../mock-heroes';
 
 // Component import principal para se trabalhar com angular
 @Component({
@@ -17,6 +19,15 @@ export class HeroesComponent implements OnInit {
     id: 1,
     name: "Windstorm"
   };
+
+  // Variável para receber os dados, array
+  heroes = HEROES;
+
+  // Função para exbiri os dados do herói selecionado
+  selectedHero?: Hero;
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
 
   constructor() { }
 

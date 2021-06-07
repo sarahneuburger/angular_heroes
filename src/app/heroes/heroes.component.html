@@ -1,10 +1,31 @@
+<h2>My Heroes</h2>
+<!--Lista não ordenada-->
+<ul class="heroes">
+    <!--For para mostrar todos os registros-->
+    <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </li>
+</ul>
+
 <!-- Vinculando o objeto Hero para visualização -->
-<h2>{{hero.name | uppercase}} Details</h2>
-<div><span>id: </span>{{hero.id}}</div>
+<!-- <h2>{{hero.name | uppercase}} Details</h2>
+    Substituído pelos detalhes conforme clique
+<div><span>id: </span>{{hero.id}}</div> -->
 
 <!--Input para alterar nome, já recebendo o nome constante no objeto
-[(ngModel)] é a sintaxe de ligação de dados bidirecional do Angular.-->
-<div>
+[(ngModel)] é a sintaxe de ligação de dados bidirecional do Angular.
+Substituído pelos detalhes conforme clique -->
+<!-- <div>
     <label for="name">Hero name: </label>
     <input id="name" [(ngModel)]="hero.name" placeholder="name">
+</div> -->
+
+<!--Onde serão exbidos os dados do herói selecionado-->
+<div *ngIf="selectedHero">
+    <h2>{{selectedHero.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{selectedHero.id}}</div>
+    <div>
+        <label for="hero-name">Hero name: </label>
+        <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+    </div>
 </div>
