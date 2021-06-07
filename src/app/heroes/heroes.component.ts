@@ -8,6 +8,9 @@ import { HeroService } from '../hero.service';
 // Importando o serviço de msg
 import { MessageService } from '../message.service';
 
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
 // Component import principal para se trabalhar com angular
 @Component({
   selector: 'app-heroes',
@@ -28,8 +31,11 @@ export class HeroesComponent implements OnInit {
   //heroes = HEROES;
   heroes: Hero[] = [];
 
-  selectedHero?: Hero;
-  constructor(private heroService: HeroService, private messageService: MessageService) { }
+  //selectedHero?: Hero;
+  constructor(
+    private route: ActivatedRoute,
+    private heroService: HeroService,
+    private location: Location) { }
 
   // É um gancho de ciclo de vida . Chamadas ngOnInit() logo após a criação de um componente. É um bom lugar para colocar a lógica de inicialização.
   // Incluído o ggetHeroes, pois não é boa prática chamar no construtor
@@ -37,11 +43,11 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
-  // Função para exbiri os dados do herói selecionado
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
-  }
+  // Função para exbiir os dados do herói selecionado
+  //onSelect(hero: Hero): void {
+  //  this.selectedHero = hero;
+  //this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
+  //}
 
   // Crie um método para recuperar os heróis do serviço.
   getHeroes(): void {
