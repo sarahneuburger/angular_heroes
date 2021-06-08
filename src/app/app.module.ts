@@ -21,10 +21,10 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
 @NgModule({
   declarations: [
     AppComponent,
+    DashboardComponent,
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent,
     HeroSearchComponent
   ],
   imports: [
